@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from os import path
 
-pkg_name = 'workflow_array_ephys'
+pkg_name = 'workflow'
 here = path.abspath(path.dirname(__file__))
 
 long_description = """"

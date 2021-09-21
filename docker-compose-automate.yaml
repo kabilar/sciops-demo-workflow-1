@@ -1,0 +1,29 @@
+version: "2.4"
+x-net: &net
+  networks:
+      - main
+services:
+  workflow:
+    <<: *net
+    build:
+      context: .
+    image: workflow:v0.0.0
+    environment:
+      - DJ_HOST
+      - DJ_USER
+      - DJ_PASS
+      - DATABASE_PREFIX
+      - EPHYS_ROOT_DATA_DIR=/main/root_data
+      - EPHYS_PROCESSED_DATA_DIR=/main/processed_data
+    command:
+      - bash
+      - -c
+      - |
+        echo "------ AUTOMATED ROUTINES ------"
+        python workflow/process.py
+    volumes:
+      - ${ROOT_DATA_DIR}:/main/root_data
+      - ${PROCESSED_DATA_DIR}:/main/processed_data
+      - ./apt_requirements.txt:/tmp/apt_requirements.txt
+networks:
+  main:

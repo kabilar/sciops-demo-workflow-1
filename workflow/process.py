@@ -1,6 +1,6 @@
 import time
 import logging
-from workflow_array_ephys.pipeline import session, ephys
+from workflow.pipeline import session, ephys
 
 logger = logging.getLogger(__name__)
 logger.setLevel('INFO')

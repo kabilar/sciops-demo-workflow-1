@@ -7,10 +7,10 @@ Build a full ephys pipeline using the canonical pipeline elements
 + [element-array-ephys](https://github.com/datajoint/element-array-ephys)
 
 This repository provides demonstrations for:
-1. Set up a workflow using different elements (see [workflow_array_ephys/pipeline.py](workflow_array_ephys/pipeline.py))
+1. Set up a workflow using different elements (see [workflow_array_ephys/pipeline.py](workflow/pipeline.py))
 2. Ingestion of data/metadata based on:
     + predefined file/folder structure and naming convention
-    + predefined directory lookup methods (see [workflow_array_ephys/paths.py](workflow_array_ephys/paths.py))
+    + predefined directory lookup methods (see [workflow_array_ephys/paths.py](workflow/paths.py))
 3. Ingestion of clustering results (built-in routine from the ephys element)
 
 

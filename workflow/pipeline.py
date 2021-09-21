@@ -12,8 +12,6 @@ from element_session.session import Session
 
 from .paths import get_ephys_root_data_dir, get_session_directory
 
-if 'custom' not in dj.config:
-    dj.config['custom'] = {}
 
 db_prefix = dj.config['custom'].get('database.prefix', '')
 
