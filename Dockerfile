@@ -1,6 +1,12 @@
-FROM datajoint/djbase:py3.8-debian
+FROM jupyter/minimal-notebook:hub-1.4.1
 
-RUN mkdir /main/workflow
+# jupyter related installation (can be removed once we use datajoint's images)
+USER root
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt update -y
+RUN apt install python3-pip -y
+RUN apt install git-all -y
+# end
 
 WORKDIR /main/workflow
 

@@ -25,5 +25,6 @@ services:
       - ${ROOT_DATA_DIR}:/main/root_data
       - ${PROCESSED_DATA_DIR}:/main/processed_data
       - ./apt_requirements.txt:/tmp/apt_requirements.txt
+    scale: ${WORKER_COUNT:-1}
 networks:
   main:
