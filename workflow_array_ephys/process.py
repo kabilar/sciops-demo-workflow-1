@@ -1,0 +1,51 @@
+import time
+import logging
+from workflow_array_ephys.pipeline import session, ephys
+
+logger = logging.getLogger(__name__)
+
+
+_tables = ((ephys.EphysRecording, {'max_calls': 10}),
+           (ephys.Clustering, {'max_calls': 5}),
+           (ephys.CuratedClustering, {'max_calls': 10}),
+           (ephys.LFP, {'max_calls': 1}),
+           (ephys.WaveformSet, {'max_calls': 1}))
+
+_default_settings = {
+    'display_progress': False,
+    'reserve_jobs': True,
+    'suppress_errors': True}
+
+
+def run(run_duration=3600*3, sleep_duration=60):
+
+    start_time = time.time()
+    while ((time.time() - start_time < run_duration)
+           or (run_duration is None)
+           or (run_duration < 0)):
+
+        for skey in (session.Session - ephys.ProbeInsertion).fetch(
+                'KEY', limit=10, order_by='random'):
+            ephys.ProbeInsertion.auto_generate_entries(skey)
+
+        for table, populate_settings in _tables:
+            logger.info(f'------------- {table.__name__} ---------------')
+            table.populate(**{**_default_settings, **populate_settings})
+
+        _clean_up()
+        time.sleep(sleep_duration)
+
+
+_generic_errors = ["%Deadlock%", "%DuplicateError%", "%Lock wait timeout%",
+                   "%MaxRetryError%", "%KeyboardInterrupt%",
+                   "InternalError: (1205%", "%SIGTERM%"]
+
+
+def _clean_up():
+    (ephys.schema.jobs & 'status = "error"'
+     & [f'error_message LIKE "{e}"'
+        for e in _generic_errors.append('%FileNotFound%')]).delete()
+
+
+if __name__ == '__main__':
+    run()
