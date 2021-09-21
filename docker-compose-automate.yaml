@@ -13,8 +13,8 @@ services:
       - DJ_USER
       - DJ_PASS
       - DATABASE_PREFIX
-      - EPHYS_ROOT_DATA_DIR=/main/root_data
-      - EPHYS_PROCESSED_DATA_DIR=/main/processed_data
+      - EPHYS_ROOT_DATA_DIR=/home/jovyan/root_data
+      - EPHYS_PROCESSED_DATA_DIR=/home/jovyan/processed_data
     command:
       - bash
       - -c
@@ -22,8 +22,8 @@ services:
         echo "------ AUTOMATED ROUTINES ------"
         python workflow/process.py
     volumes:
-      - ${ROOT_DATA_DIR}:/main/root_data
-      - ${PROCESSED_DATA_DIR}:/main/processed_data
+      - ${ROOT_DATA_DIR}:/home/jovyan/root_data
+      - ${PROCESSED_DATA_DIR}:/home/jovyan/processed_data
       - ./apt_requirements.txt:/tmp/apt_requirements.txt
     scale: ${WORKER_COUNT:-1}
 networks:
