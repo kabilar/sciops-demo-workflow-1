@@ -10,7 +10,7 @@ from element_animal.subject import Subject
 from element_lab.lab import Source, Lab, Protocol, User, Project
 from element_session.session import Session
 
-from .paths import get_ephys_root_data_dir, get_session_directory
+from .paths import get_ephys_root_data_dir, get_processed_root_data_dir, get_session_directory
 
 
 db_prefix = dj.config['custom'].get('database.prefix', '')
