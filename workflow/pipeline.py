@@ -69,7 +69,7 @@ default_params = {
 }
 
 ephys.ClusteringParamSet.insert_new_params(
-    processing_method='kilosort3',
+    clustering_method='kilosort2.5',
     paramset_desc='Default parameter set for Kilosort3',
     params=default_params,
     paramset_idx=0)
