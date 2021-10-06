@@ -40,14 +40,19 @@ def run(run_duration=3600*3, sleep_duration=10):
         for skey in (session.Session - ephys.ProbeInsertion).fetch('KEY', limit=10):
             try:
                 ephys.ProbeInsertion.auto_generate_entries(skey)
-            except FileNotFoundError:
-                pass
+            except FileNotFoundError as e:
+                logger.debug(str(e))
+            except Exception as e:
+                logger.error(str(e))
+
         # auto-generate entries for ClusteringTask
         for rkey in (ephys.EphysRecording - ephys.ClusteringTask).fetch('KEY', limit=10):
             try:
                 ephys.ClusteringTask.auto_generate_entries(rkey)
-            except FileNotFoundError:
-                pass
+            except FileNotFoundError as e:
+                logger.debug(str(e))
+            except Exception as e:
+                logger.error(str(e))
 
         # populate all ephys tables
         for table, populate_settings in _tables:
