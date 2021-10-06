@@ -10,7 +10,7 @@ from element_animal.subject import Subject
 from element_lab.lab import Source, Lab, Protocol, User, Project
 from element_session.session import Session
 
-from .paths import get_ephys_root_data_dir, get_session_directory
+from .paths import get_ephys_root_data_dir, get_processed_root_data_dir, get_session_directory
 
 
 db_prefix = dj.config['custom'].get('database.prefix', '')
@@ -69,7 +69,7 @@ default_params = {
 }
 
 ephys.ClusteringParamSet.insert_new_params(
-    processing_method='kilosort2',
-    paramset_desc='Default parameter set for Kilosort2',
+    clustering_method='kilosort2.5',
+    paramset_desc='Default parameter set for Kilosort3',
     params=default_params,
     paramset_idx=0)
