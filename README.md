@@ -75,11 +75,7 @@
 + Kilosort processing
     + Now the workflow will trigger Kilosort 2.5 to analyze this dataset with 
     default parameters.
-    + To determine when your dataset is processed, log in to 
-    [DataJoint LabBook](https://sciops-demo-v1-labbook.datajoint.io/)
-    + In the left column, navigate to the `ephys` schema
-    + In the middle column, navigate to the `WaveformSet` table
-    + In the right column, `Insert` a new subject
+    + Once your dataset is processed with Kilosort, you will receive an email
 
 + Data exploration and visualization
     + Within this directory please navigate to the Jupyter notebook 
