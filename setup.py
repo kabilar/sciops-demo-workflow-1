@@ -21,7 +21,7 @@ with open(path.join(here, pkg_name, 'version.py')) as f:
     exec(f.read())
 
 setup(
-    name='workflow-array-ephys',
+    name='sciops-demo-workflow-1',
     version=__version__,
     description="Extracellular electrophysiology pipeline using the DataJoint elements",
     long_description=long_description,
