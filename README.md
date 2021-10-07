@@ -7,8 +7,7 @@
      results.
     + This 
     [workflow](https://github.com/ttngu207/sciops-demo-workflow-1)
-    uses components from open-source packages, including the DataJoint Elements 
-    (listed below):
+    uses components from open-source packages, including the DataJoint Elements:
         + [element-lab](https://github.com/datajoint/element-lab)
         + [element-animal](https://github.com/datajoint/element-animal)
         + [element-session](https://github.com/datajoint/element-session)
