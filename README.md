@@ -19,6 +19,8 @@
     + Please email us after you create this account so we can ensure your 
     account is configured properly.
 
+    ![accounts](images/accounts.png)
+
 + Upload Neuropixels data
     + Download a sftp client, such as [Filezilla](
         https://filezilla-project.org/download.php?type=client)
@@ -28,6 +30,9 @@
         + Username: <datajoint.io account username>
         + Password: <datajoint.io account password>
         + Port: 22
+
+    ![filezilla](images/filezilla_login.png)
+
     + Your files should be in the following format, where the `subject`, 
     `session`, and `imec` directories can have any naming convention.
         ```
@@ -54,6 +59,9 @@
         + Host: `tutorial-db.datajoint.io`
         + Username: <datajoint.io account username>
         + Password: <datajoint.io account password>
+
+        ![labbook login](images/labbook_login.png)
+
     + DataJoint LabBook displays data from your database
         + Left column - schemas
         + Middle column - tables within a schema
@@ -62,16 +70,24 @@
         + In the left column, navigate to the `subject` schema
         + In the middle column, navigate to the `Subject` table
         + In the right column, `Insert` a new subject
+
+        ![labbook subject](images/labbook_subject.png)
+
     + Enter session information
         + In the left column, navigate to the `session` schema
         + In the middle column, navigate to the `Session` table
         + In the right column, `Insert` a new experimental session for the 
         subject
+
+        ![labbook session](images/labbook_session.png)
+
     + Enter session directory information
         + In the left column, navigate to the `session` schema
         + In the middle column, navigate to the `SessionDirectory` table
         + In the right column, `Insert` a new entry to identify where the data 
         is located (relative to the `inbox` directory)
+
+        ![labbook session directory](images/labbook_sessiondirectory.png)
 
 + Kilosort processing
     + Now the workflow will trigger Kilosort 2.5 to analyze your dataset with 
@@ -82,6 +98,8 @@
     + Log in to the [DataJoint Jupyter environment](https://sciops-demo-v1-jupyter.datajoint.io/)
     + Navigate to the Jupyter notebook [01-explore](notebooks/01-explore.ipynb) 
     for examples on how to plot the processed data.
+
+    ![explore notebook](images/explore.png)
 
 + Please repeat the above steps to process additional datasets.
 
