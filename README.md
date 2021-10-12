@@ -91,8 +91,9 @@
 + Kilosort processing
     + Now the workflow will trigger Kilosort 2.5 to analyze your dataset with 
     default parameters.
-    + When your data is processed you will see an entry in the ephys.WaveformSet
-    table within DataJoint LabBook.
+    + When your data is processed you will see an entry in the 
+    `ephys.CuratedClustering.Unit` and `ephys.WaveformSet` tables within 
+    DataJoint LabBook.
 
 + Data exploration and visualization
     + Log in to the [DataJoint Jupyter environment](https://jupyter.datajoint.io/)
